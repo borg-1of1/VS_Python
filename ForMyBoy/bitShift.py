@@ -13,9 +13,13 @@ print("The result of shifting {} left by {} bits is: {}.".format(startingNum,num
 # String and charater shifting
 # Function for rotating left.  Takes in a string and number of characters to shift.  Returns the shifted string.
 def leftShiftString(string, n):
+    # converts the input string to a character list
     charList = list(string)
+    # splits the character list at the indicate position 
     leftRotate = charList[n:]+charList[:n]
+    # rejoins the split list after swapping positions
     leftRotatedString = "".join(leftRotate)
+    # retuns the new string to the caller
     return leftRotatedString
 
 # Function for rotating right.  Takes in a string and number of characters to shift.  Returns the shifted string.
