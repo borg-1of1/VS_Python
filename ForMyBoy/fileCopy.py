@@ -18,8 +18,12 @@ copyFrom.close()
 copyTo = open(copyToFile,'w')
 
 # iterate through each line of text and write to the file
+line = 1
 for lineOfText in copyText:
+    lineNumber = str(line)
+    copyTo.write(lineNumber + " ")
     copyTo.write(lineOfText)
+    line = line + 1
 
 # Close the file when done
 copyTo.close()

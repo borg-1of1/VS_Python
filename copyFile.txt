@@ -1,0 +1,5 @@
+This is a test file that goes with fileCopy.py. I am just adding 
+content to test the code.
+There are multiple lines for no other reason than to make it so that 
+the code has to read multiple lines.
+This is just a test.
