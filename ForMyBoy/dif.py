@@ -17,6 +17,7 @@ f2.seek(0)
 for line1 in f1:
     if lines1[i] != lines2[i]:
         print("no")
+        print(lines1[i]+"\n"+ lines2[i]+"\n")
         exit(0)
     i = i+1
 else:
