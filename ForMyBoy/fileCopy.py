@@ -7,23 +7,34 @@ copyToFile = input("Enter the output file name: ")
 # shutil.copyfile(copyFromFile,copyToFile)
 
 # Method 2 - Reading from one file into memory and then writing to the other until all data has been copied
-# Open file
-copyFrom = open(copyFromFile,'r')
+# Open file 
+#copyFrom = open(copyFromFile,'r')
 # Read contents to end of file
-copyText = copyFrom.readlines()
+#copyText = copyFrom.readlines()
 # Close file
-copyFrom.close()
+#copyFrom.close()
 
 # Open file that will have data added to it
-copyTo = open(copyToFile,'w')
+#copyTo = open(copyToFile,'w')
 
 # iterate through each line of text and write to the file
-line = 1
-for lineOfText in copyText:
-    lineNumber = str(line)
-    copyTo.write(lineNumber + " ")
-    copyTo.write(lineOfText)
-    line = line + 1
+#line = 1
+#for lineOfText in copyText:
+#    lineNumber = str(line)
+#    copyTo.write(lineNumber + "> ")
+#    copyTo.write(lineOfText)
+#   line = line + 1
 
 # Close the file when done
-copyTo.close()
+#copyTo.close()
+
+with open(copyFromFile,"r") as shandle:
+    with open(copyToFile, "w") as thandle:
+        count = 1
+        for line in shandle:
+            lineCount = str(count)
+            thandle.write(lineCount +"> ")
+            thandle.write(line)
+            count = count + 1
+    thandle.close()
+shandle.close()
