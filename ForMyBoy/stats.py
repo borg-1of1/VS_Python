@@ -19,7 +19,7 @@ def my_mode(values):
 
 def my_median(values,length):
     index = length//2
-    if n% 2:
+    if length% 2:
         print("The median is :",sorted(values)[index])
     print("The median is: ",sum(sorted(values)[index-1:index+1])/2)
 
