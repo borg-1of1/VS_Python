@@ -8,13 +8,13 @@ and vocabulary.  Words are chosen at random.
 
 import random
 
-# articles = ("A", "THE")
+articles = input("Enter the file name for articles: ")
 
-# nouns = ("BOY", "GIRL", "BAT", "BALL")
+nouns = input("Enter the file name for nouns: ")
 
-# verbs = ("HIT", "SAW", "LIKED")
+verbs = input("Enter the file name for verbs: ")
 
-# prepositions = ("WITH", "BY")
+prepositions = input("Enter the first file name for prepositions: ")
 
 def sentence():
     """Builds and returns a sentence."""    
@@ -22,16 +22,16 @@ def sentence():
 
 def nounPhrase():
     """Builds and returns a noun phrase."""
-    return random.choice(getWords('articles.txt')) + " " + random.choice(getWords('nouns.txt'))
+    return random.choice(getWords(articles)) + " " + random.choice(getWords(nouns))
 
 def verbPhrase():
     """Builds and returns a verb phrase."""
-    return random.choice(getWords('verbs.txt')) + " " + nounPhrase() + " " + \
+    return random.choice(getWords(verbs)) + " " + nounPhrase() + " " + \
            prepositionalPhrase()
 
 def prepositionalPhrase():
     """Builds and returns a prepositional phrase."""
-    return random.choice(getWords('prepositions.txt')) + " " + nounPhrase()
+    return random.choice(getWords(prepositions)) + " " + nounPhrase()
 
 def getWords(file1):
     """Builds a list of words based on name of input file."""            
