@@ -1,35 +1,22 @@
 # Put your code here
+from collections import Counter
+
 file1 = input("Enter the input file name: ")
 
 # Open the file in read mode
-text = open(file1, "r")
+my_file = open(file1,"r")
+
+# Read data from file
+data = my_file.read()
   
-# Create an empty dictionary
-d = dict()
-  
-# Loop through each line of the file
-for line in text:
-    # Remove the leading spaces and newline character
-    line = line.strip()
-  
-    # Convert the characters in line to
-    # lowercase to avoid case mismatch
-    line = line.upper()
-  
-    # Split the line into words
-    words = line.split(" ")
-                         
-  
-    # Iterate over each word in line
-    for word in words:
-        # Check if the word is already in dictionary
-        if word in d:
-            # Increment count of word by 1
-            d[word] = d[word] + 1
-        else:
-            # Add the word to dictionary with count 1
-            d[word] = 1
-  
-# Print the contents of dictionary
-for key in list(d.keys()):
-    print(key, d[key])
+# create method to coutn the unique words
+count = {}
+
+for w in data.replace('\n',' ').split(' '):
+    if w in count:
+        count[w] += 1
+    else:
+        count[w] = 1
+for word, times in count.items():
+    print(word, times)
+
