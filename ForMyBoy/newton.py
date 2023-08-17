@@ -17,35 +17,35 @@ Compute the square root of a number (uses function with loop).
 import math
 
 def getSquare(x):   
-   
-   # Initialize the tolerance and estimate
-   tolerance = 0.000001
-   estimate = 1.0
-
-   # Perform the successive approximations
    while True:
-      estimate = (estimate + x / estimate) / 2
-      difference = abs(x - estimate ** 2)
-      if difference <= tolerance:
-         break
+      # Initialize the tolerance and estimate
+      tolerance = 0.000001
+      estimate = 1.0
 
-   # Output the result
-   print("The program's estimate is", estimate)
-   print("Python's estimate is", math.sqrt(x))
+      # Perform the successive approximations
+      while True:
+         estimate = (estimate + x / estimate) / 2
+         difference = abs(x - estimate ** 2)
+         if difference <= tolerance:
+            break
+
+      # Output the result
+      print("The program's estimate is", estimate)
+      print("Python's estimate is", math.sqrt(x))
+      
+      n = input("Enter a positive number or enter/return to quit: ")
+      if n=='':
+         break
+      else:
+         n = float(n)
+         getSquare(n)
    
 
 
 def main():
-   # Receive the input number from the user
    n = input("Enter a positive number or enter/return to quit: ")
    n = float(n)
-   while True:      
-      getSquare(n)
-      n = input("Enter a positive number or enter/return to quit: ")
-      if n=='':
-         return
-      else:
-         n = float(n)
+   getSquare(n)
 
 if __name__ == "__main__":
    main()
