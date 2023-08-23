@@ -13,39 +13,27 @@ Compute the square root of a number (uses function with loop).
    Python's own estimate using math.sqrt.
 """
 
-
 import math
-
-def getSquare(x):   
-   while True:
-      # Initialize the tolerance and estimate
-      tolerance = 0.000001
-      estimate = 1.0
-
-      # Perform the successive approximations
-      while True:
-         estimate = (estimate + x / estimate) / 2
-         difference = abs(x - estimate ** 2)
-         if difference <= tolerance:
-            break
-
-      # Output the result
-      print("The program's estimate is", estimate)
-      print("Python's estimate is", math.sqrt(x))
-      
-      n = input("Enter a positive number or enter/return to quit: ")
-      if n=='':
-         break
-      else:
-         n = float(n)
-         getSquare(n)
-   
-
+# Initialize the tolerance
+TOLERANCE = 0.000001
+# this is the Newton's function
+def newton(x,estimate):
+   estimate = (estimate + x / estimate) / 2
+   difference = abs(x - estimate ** 2)
+   if difference <= TOLERANCE:
+      return estimate
+   else:
+      return newton(x,estimate)
 
 def main():
-   n = input("Enter a positive number or enter/return to quit: ")
-   n = float(n)
-   getSquare(n)
-
+   while True:
+      x = input("Enter a positive number or enter/return to quit: ")
+      if x == "":
+         break
+      x = float(x)
+      estimate = 1.0
+      print("\nThe program's estimate is", newton(x,estimate))
+      print("Python's estimate is ", math.sqrt(x))
+      print("\n")
 if __name__ == "__main__":
-   main()
+    main()
