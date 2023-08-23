@@ -12,14 +12,16 @@ import os, os.path
 
 QUIT = '8'
 
-COMMANDS = ('1', '2', '3', '4', '5', '6', '8')
+COMMANDS = ('1', '2', '3', '4', '5', '6', '7', '8')
 
+# Menu
 MENU = """1   List the current directory
 2   Move up
 3   Move down
 4   Number of files in the directory
 5   Size of the directory in bytes
 6   Search for a file name
+7   View contents of a file
 8   Quit the program"""
 
 def main():
@@ -64,10 +66,20 @@ def runCommand(command):
             for f in fileList:
                 print(f)
      # add your condition here
+    elif command == '7':       
+        viewFile() 
 
-def viewFile(dirName):
-   # write your code here
-   print("")
+def viewFile():
+    # write your code here   
+    listCurrentDir(os.getcwd())
+    lyst = os.listdir(listCurrentDir(os.getcwd()))
+    file1 = input("Enter a file name from the above list: ")
+    for element in lyst:
+        if file1 == element:
+            with open(file1,'r') as f1:
+                for line in f1:
+                    print(line)
+            f1.close()        
 
 def listCurrentDir(dirName):
     """Prints a list of the cwd's contents."""
