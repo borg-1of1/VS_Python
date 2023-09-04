@@ -22,11 +22,21 @@ def grayscale1(image):
 def grayscale2(image):
     """Converts an image to grayscale using the crude average
     of the r, g, and b"""
-    pass
+    whitePixel = (255, 255, 255)
+    for y in range(image.getHeight()):
+        for x in range(image.getWidth()):
+            (r, g, b) = image.getPixel(x, y)
+            average = (r + g + b) // 3
+            lum = r + g + b
+            if average < 128:
+                image.setPixel(x, y, (lum, lum, lum))
+            else:
+                image.setPixel(x, y, whitePixel)
 
 def main():
     filename = input("Enter the image file name: ")
     image = Image(filename)
+    #grayscale1(image)
     grayscale2(image)
     image.draw()
 
