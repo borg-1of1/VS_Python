@@ -27,11 +27,9 @@ def grayscale2(image):
         for x in range(image.getWidth()):
             (r, g, b) = image.getPixel(x, y)
             average = (r + g + b) // 3
-            lum = r + g + b
-            if average < 128:
-                image.setPixel(x, y, (lum, lum, lum))
-            else:
-                image.setPixel(x, y, whitePixel)
+            lum = average      
+            image.setPixel(x, y, (lum, lum, lum))    
+            
 
 def main():
     filename = input("Enter the image file name: ")
