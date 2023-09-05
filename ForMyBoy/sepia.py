@@ -27,6 +27,7 @@ def sepia(image):
             else:
                 red = min(int(red * 1.08), 255)
                 blue = int(blue * 0.93)
+            greyImage.setPixel(x, y, (red, green, blue))
     
 
 def main():
