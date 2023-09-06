@@ -39,10 +39,12 @@ class TaxCalculator(EasyFrame):
         """Obtains the data from the input field and uses
         them to compute the tax, which is sent to the
         output field."""
+        standardDeduction = 10000
         income = self.incomeField.getNumber()
         numDependents = self.depField.getNumber()
-        exemptionAmount = 1 + numDependents
-        tax = (income - numDependents * exemptionAmount) * .15
+        exemptionAmount = 3000
+        income = income - standardDeduction
+        tax = (income - numDependents * exemptionAmount) * .20
         self.taxField.setNumber(tax)
         
         
