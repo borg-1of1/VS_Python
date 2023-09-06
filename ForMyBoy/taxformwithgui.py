@@ -40,8 +40,9 @@ class TaxCalculator(EasyFrame):
         them to compute the tax, which is sent to the
         output field."""
         income = self.incomeField.getNumber()
-        numDependents = self.depField.getNumber()        
-        tax = (income - numDependents) * .072
+        numDependents = self.depField.getNumber()
+        exemptionAmount = 1 + numDependents
+        tax = (income - numDependents * exemptionAmount) * .15
         self.taxField.setNumber(tax)
         
         
