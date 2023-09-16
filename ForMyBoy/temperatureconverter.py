@@ -7,6 +7,7 @@ Illustrates the use of numeric data fields.
 
 from breezypythongui import EasyFrame
 
+
 class TemperatureConverter(EasyFrame):
     """A termperature conversion program."""
 
@@ -21,10 +22,10 @@ class TemperatureConverter(EasyFrame):
         
         self.calcFahr = self.addButton(text=">>>>",row=3,column=0,columnspan=1, command=self.computeFahr)
         self.calcCels = self.addButton(text="<<<<",row=3,column=1,columnspan=1, command=self.computeCelsius)                  
-        if self.celsiusField.focus():
-            self.calcFahr.bind('<Enter>', self.computeFahr())
-        if self.fahrField.focus():
-            self.calcCels.bind('<Enter>', self.computeCelsius())
+        #self.celsiusField.focus():
+        self.celsiusField.bind("<Return>", lambda event: self.computeFahr())
+        #self.fahrField.focus():
+        self.fahrField.bind("<Return>", lambda event: self.computeCelsius())
     
     # The controller methods
     def computeFahr(self):
@@ -40,7 +41,7 @@ class TemperatureConverter(EasyFrame):
         and outputs the Celsius degrees."""
         fahr = self.fahrField.getNumber()
         celcius = (fahr - 32) * (5/9)
-        self.celsiusField.setNumber(celcius)    
+        self.celsiusField.setNumber(celcius)
         
 def main():
     """Instantiate and pop up the window."""
