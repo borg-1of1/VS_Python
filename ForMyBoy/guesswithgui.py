@@ -56,7 +56,11 @@ class GuessingGame(EasyFrame):
     def goCorrect(self):
         """Guess was too correct, so announce and wait."""
         # Write code here
+        self.count += 1
         self.myLabel["text"] = "The computer guessed the number in " + str(self.count) + " attempts!"
+        self.small["state"] = "disabled"
+        self.large["state"] = "disabled"
+        self.correct["state"] = "disabled"
 
 
     def newGame(self):
@@ -65,8 +69,12 @@ class GuessingGame(EasyFrame):
         self.lowerBound = 0
         self.upperBound = 100
         self.count = 0    
+        self.myNumber = (self.lowerBound + self.upperBound) // 2
         guess = "Is the number " + str(self.myNumber) + "?" 
-        self.myLabel["text"] = guess    
+        self.myLabel["text"] = guess  
+        self.small["state"] = "active"
+        self.large["state"] = "active"
+        self.correct["state"] = "active"  
 
 def main():
     """Instantiate and pop up the window."""
