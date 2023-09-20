@@ -64,14 +64,16 @@ class GuessingGame(EasyFrame):
         # Write code here
         self.lowerBound = 0
         self.upperBound = 100
-        self.count = 0        
+        self.count = 0    
+        guess = "Is the number " + str(self.myNumber) + "?" 
+        self.myLabel["text"] = guess    
 
 def main():
     """Instantiate and pop up the window."""
     GuessingGame().mainloop()
 
 if __name__ == "__main__":
-    try:
+    try: 
         while True:
             main()
     except KeyboardInterrupt:
