@@ -13,9 +13,9 @@ class GuessingGame(EasyFrame):
     def __init__(self):
         """Sets up the window,widgets, and data."""
         EasyFrame.__init__(self, title = "Guessing Game")
-        # self.lowerBound
-        # self.upperBound
-        # self.count
+        self.lowerBound = 0
+        self.upperBound = 100
+        self.count = 0
         self.myNumber = (self.lowerBound + self.upperBound) // 2
         guess = "Is the number " + str(self.myNumber) + "?"
         self.myLabel = self.addLabel(text = guess,
@@ -37,19 +37,34 @@ class GuessingGame(EasyFrame):
     def goLarge(self):
         """Guess was too small, so move guess to the right of the number."""
         # Write code here
+        self.count += 1
+        self.lowerBound = self.myNumber 
+        self.myNumber = (self.lowerBound + self.upperBound) // 2  
+        guess = "Is the number " + str(self.myNumber) + "?"   
+        self.myLabel["text"] = guess 
         
     def goSmall(self):
         """Guess was too large, so move guess to the left of the number."""
         # Write code here
+        self.count += 1
+        self.upperBound = self.myNumber
+        self.myNumber = (self.lowerBound + self.upperBound) // 2  
+        guess = "Is the number " + str(self.myNumber) + "?" 
+        self.myLabel["text"] = guess 
+        
 
     def goCorrect(self):
         """Guess was too correct, so announce and wait."""
         # Write code here
+        self.myLabel["text"] = "The computer guessed the number in " + str(self.count) + " attempts!"
 
 
     def newGame(self):
         """Resets the GUI to its original state."""
         # Write code here
+        self.lowerBound = 0
+        self.upperBound = 100
+        self.count = 0        
 
 def main():
     """Instantiate and pop up the window."""
