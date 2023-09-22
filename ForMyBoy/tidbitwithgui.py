@@ -28,7 +28,7 @@ class TidbitGUI(EasyFrame):
         self.addButton(text="Compute",row=3,column=0,columnspan=2, command=self.computeSchedule)
         """Output text box"""
         # self.outputArea()
-        self.textField = self.addTextArea(text="",row=5,column=0,rowspan=1,columnspan=2,width=80,height=5)
+        self.textField = self.addTextArea(text="",row=5,column=0,rowspan=1,columnspan=2,width=80,height=22)
 
     def computeSchedule(self):
         """Event handler for the Compute button."""
