@@ -25,7 +25,7 @@ class TidbitGUI(EasyFrame):
         self.rateField = self.addFloatField(value=0.00,row=1,column=1)
         """Command button"""
         # self.button()
-        self.addButton(text="Compute",row=3,column=0,columnspan=2, command=self.computeSchedule)
+        self.button = self.addButton(text="Compute",row=3,column=0,columnspan=2, command=self.computeSchedule)
         """Output text box"""
         # self.outputArea()
         self.outputArea = self.addTextArea(text="",row=5,column=0,rowspan=1,columnspan=2,width=80,height=5)
