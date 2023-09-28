@@ -42,7 +42,7 @@ class TidbitGUI(EasyFrame):
         purchasePrice = purchasePrice - downPayment
 
         monthlyPayment = .05 * purchasePrice
-        month = 0
+        month = 1
         balance = purchasePrice        
         self.outputArea.setText("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance\n")
         while balance > 0:
