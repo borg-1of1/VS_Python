@@ -25,11 +25,11 @@ class TidbitGUI(EasyFrame):
         self.rateField = self.addFloatField(value=0.00,row=1,column=1)
         """Command button"""
         # self.button()
-        self.addButton(text="Compute",row=3,column=0,columnspan=2, command=self.computeSchedule)
+        self.button = self.addButton(text="Compute",row=3,column=0,columnspan=2, command=self.computeSchedule)
         """Output text box"""
         # self.outputArea()
-        self.textField = self.addTextArea(text="",row=5,column=0,rowspan=1,columnspan=2,width=80,height=5)
-
+        self.outputArea = self.addTextArea(text="",row=5,column=0,rowspan=1,columnspan=2,width=80,height=5)
+        
     def computeSchedule(self):
         """Event handler for the Compute button."""
         # Write your code here
@@ -44,7 +44,7 @@ class TidbitGUI(EasyFrame):
         monthlyPayment = .05 * purchasePrice
         month = 1
         balance = purchasePrice        
-        self.textField.setText("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance\n")
+        self.outputArea.setText("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance\n")
         while balance > 0:
             if monthlyPayment > balance:
                 monthlyPayment = balance
@@ -53,11 +53,11 @@ class TidbitGUI(EasyFrame):
                 interest = balance * monthlyRate
             principal = monthlyPayment - interest
             remaining = balance - principal
-            self.textField.appendText("%2d%15.2f%15.2f%17.2f%17.2f%17.2f\n" % (month, balance, interest, principal, monthlyPayment, remaining))
+            self.outputArea.appendText("%2d%15.2f%15.2f%17.2f%17.2f%17.2f\n" % (month, balance, interest, principal, monthlyPayment, remaining))            
             balance = remaining
-            month += 1
+            month += 1       
 
-        
+            
 def main():
     """Instantiate and pop up the window."""
     TidbitGUI().mainloop()
@@ -68,3 +68,5 @@ if __name__ == "__main__":
             main()
     except KeyboardInterrupt:
         print("\nProgram closed.")
+
+
