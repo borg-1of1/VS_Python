@@ -44,7 +44,7 @@ class Student(object):
         return (self.name == student2.name) and (self.age == student2.age)
 
     def __lt__(self, student2):
-        return (self.age < student2.age) or ((self.age == student2.age) and (self.name < student2.name))
+        return (self.scores < student2.scores) or ((self.scores == student2.scores) and (self.name < student2.name))
     
     def __ge__(self, student2):
         return otherRod <= self
