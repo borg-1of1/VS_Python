@@ -51,11 +51,13 @@ class Student(object):
 
 def main():
     """A simple test."""
-    student = Student("Ken", 5)
-    print(student)
-    for i in range(1, 6):
-        student.setScore(i, 100)
-    print(student)
+    students = [Student("Ken", 10), Student("Mary",10), Student("Ken",10)]
+    #print(student)
+    for s in students:
+        for i in range(1, 6):
+            s.setScore(i, 100)
+        print(s)
+    print(students[0]==students[1], students[0]==students[2])
 
 if __name__ == "__main__":
     main()
