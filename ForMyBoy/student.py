@@ -40,6 +40,15 @@ class Student(object):
                " ".join(map(str, self.scores))
         
     # Write method definitions here
+    def eq(self, student2):
+        if self == student2:
+            return True
+
+    def lt(student1, student2):
+        pass
+    
+    def ge(student1, student2):
+        pass
 
 def main():
     """A simple test."""
