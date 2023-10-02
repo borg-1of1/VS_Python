@@ -41,7 +41,7 @@ class Student(object):
         
     # Write method definitions here
     def __eq__(self, student2):
-        return (self.name == student2.name) and (self.age == student2.age)
+        return (self.name == student2.name) and (self.scores == student2.scores)
 
     def __lt__(self, student2):
         return (self.scores < student2.scores) or ((self.scores == student2.scores) and (self.name < student2.name))
