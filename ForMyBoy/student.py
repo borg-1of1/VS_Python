@@ -40,15 +40,14 @@ class Student(object):
                " ".join(map(str, self.scores))
         
     # Write method definitions here
-    def eq(self, student2):
-        if self == student2:
-            return True
+    def __eq__(self, student2):
+        return (self.name == student2.name) and (self.age == student2.age)
 
-    def lt(student1, student2):
-        pass
+    def __lt__(self, student2):
+        return (self.age < student2.age) or ((self.age == student2.age) and (self.name < student2.name))
     
-    def ge(student1, student2):
-        pass
+    def __ge__(self, student2):
+        return otherRod <= self
 
 def main():
     """A simple test."""
