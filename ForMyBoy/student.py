@@ -47,7 +47,7 @@ class Student(object):
         return (self.scores < student2.scores) or ((self.scores == student2.scores) and (self.name < student2.name))
     
     def __ge__(self, student2):
-        return otherRod <= self
+        return self == student2 or self > student2
 
 def main():
     """A simple test."""
