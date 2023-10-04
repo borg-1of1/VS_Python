@@ -70,6 +70,19 @@ def main():
         lyst.append(s)
         
     # Complete the definition of the main function
+    print("Unsorted list\n")
+    for s in lyst:
+        print("Name: " + s.name)
+        print("Scores: " + str(s.scores))
+
+    print("Sorted list")
+    lyst = sorted(lyst,key=lambda lyst: lyst.name)
+    for s in lyst:
+        print("Name: " + s.name)
+        print("Scores: " + str(s.scores))
+        
+
+    
 
 if __name__ == "__main__":
     main()
