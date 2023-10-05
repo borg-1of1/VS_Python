@@ -85,7 +85,7 @@ def main():
 
     print("Sorted list")
     #lyst = sorted(lyst,key=lambda lyst: lyst.name)
-    list.sort(lyst)
+    lyst.sort()
     for s in lyst:
         print("Name: " + s.name)
         print("Scores: " + str(s.scores))
