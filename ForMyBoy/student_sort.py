@@ -6,6 +6,7 @@ Includes methods for comparisons and testing for equality.
 Tests the class by putting students into random order in a list
 and then sorting them.
 """
+import random
 
 class Student(object):
     """Represents a student."""
@@ -70,13 +71,21 @@ def main():
         lyst.append(s)
         
     # Complete the definition of the main function
-    print("Unsorted list\n")
+    print("Unsorted list")
     for s in lyst:
         print("Name: " + s.name)
         print("Scores: " + str(s.scores))
 
+    print("Random order")    
+    random.shuffle(lyst)
+    for s in lyst:
+        print("Name: " + s.name)
+        print("Scores: " + str(s.scores))
+
+
     print("Sorted list")
-    lyst = sorted(lyst,key=lambda lyst: lyst.name)
+    #lyst = sorted(lyst,key=lambda lyst: lyst.name)
+    list.sort(lyst)
     for s in lyst:
         print("Name: " + s.name)
         print("Scores: " + str(s.scores))
