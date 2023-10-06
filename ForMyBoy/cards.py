@@ -11,12 +11,13 @@ class Card(object):
 
     RANKS = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)
 
-    SUITS = ('Spades', 'Diamonds', 'Hearts', 'Clubs')
+    SUITS = ('Spades', 'Diamonds', 'Hearts', 'Clubs')    
 
     def __init__(self, rank, suit):
         """Creates a card with the given rank and suit."""
         self.rank = rank
         self.suit = suit
+        self.faceup = False
         
     def __str__(self):
         """Returns the string representation of a card."""
@@ -31,6 +32,13 @@ class Card(object):
         else:
             rank = self.rank
         return str(rank) + ' of ' + self.suit
+    
+    def turn(self):
+        if self.faceup == False:
+            self.faceup = True
+        else:
+            self.faceup = False
+        return self.faceup
 
 import random
 
