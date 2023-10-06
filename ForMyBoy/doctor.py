@@ -26,7 +26,7 @@ class Doctor(object):
      
 
     def greeting():
-        greeting = "Hello, how can I help you?"
+        greeting = "Hello, how can I help you today?"
         return greeting
 
     def reply(sentence):
@@ -55,7 +55,7 @@ class Doctor(object):
            replyWords.append(REPLACEMENTS.get(word, word))
         return " ".join(replyWords) 
 
-    def fairwell():
+    def farerwell(sentence):
         so_long = "Have a nice day!"
         return so_long
 
@@ -67,7 +67,7 @@ def main():
     while True:
         sentence = input("\n>> ")
         if sentence.upper() == "QUIT":
-            print(Doctor.fairwell())
+            print(Doctor.farewell(sentence))
             break
         print(Doctor.reply(sentence))
 
