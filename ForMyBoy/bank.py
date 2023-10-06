@@ -34,7 +34,7 @@ class Bank:
     def __str__(self):
         """Returns the string representation of the bank."""
         # TODO: Sort the account values before printing to the screen  
-        self.sort()      
+        self.accounts={key: val for key, val in sorted(self.accounts.items(), key = lambda ele: ele[0]}
         return "\n".join(map(str, self.accounts.values()))
 
     def makeKey(self, name, pin):
