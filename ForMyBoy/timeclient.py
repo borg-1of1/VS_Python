@@ -12,9 +12,15 @@ HOST = "localhost"
 PORT = 5000
 BUFSIZE = 1024
 ADDRESS = (HOST, PORT)
-
-server = socket(AF_INET, SOCK_STREAM)               # Create a socket
-server.connect(ADDRESS)                             # Connect it to a host
-dayAndTime = decode(server.recv(BUFSIZE), "ascii")  # Read a string from it
+while True:
+    try:
+        server = socket(AF_INET, SOCK_STREAM) 
+        server.connect(ADDRESS)                         # Connect it to a host
+        dayAndTime = decode(server.recv(BUFSIZE), "ascii")  # Read a string from it  
+        break
+    except ConnectionRefusedError: 
+        print("Connection Refuse")
+        timeout(3)
+    
 print(dayAndTime)
 server.close()      
