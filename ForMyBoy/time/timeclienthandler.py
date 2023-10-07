@@ -17,4 +17,5 @@ class TimeClientHandler(Thread):
         self.client.send(bytes(ctime() + \
                                "\nHave a nice day!",
                                "ascii"))
+        self.client.send(bytes("n Press any key to end","acsii"))
         self.client.close()
